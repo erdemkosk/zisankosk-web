@@ -1,10 +1,12 @@
 'use client';
 
-import { Box, Container, Heading, Text, VStack, Button, Input, Flex, SimpleGrid, Icon, Stack, useBreakpointValue, Badge } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, Button, Input, Flex, SimpleGrid, Icon, Stack, useBreakpointValue, Badge, IconButton, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import { FormControl, FormLabel } from '@chakra-ui/form-control';
 import { useToast } from '@chakra-ui/toast';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
@@ -232,15 +234,13 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <Flex align="center" cursor="pointer" onClick={() => scrollToSection('home')}>
-                <Box w="160px">
-                  <img 
-                    src="/images/zisankosk.png" 
-                    alt="Zişan Köşk Logo" 
-                    style={{ 
-                      width: '100%',
-                      height: '100px',
-                      objectFit: 'contain'
-                    }} 
+                <Box w={{ base: "120px", md: "160px" }} position="relative" h="60px">
+                  <Image
+                    src="/images/zisankosk.png"
+                    alt="Zişan Köşk Logo"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    priority
                   />
                 </Box>
               </Flex>
@@ -485,7 +485,7 @@ export default function Home() {
                     Online Danışmanlık
                   </Text>
                   <Text fontSize="sm" color="gray.600">
-                    Türkiye'nin her yerinden online beslenme danışmanlığı hizmeti veriyorum.
+                    Türkiye&apos;nin her yerinden online beslenme danışmanlığı hizmeti veriyorum.
                   </Text>
                 </Box>
               </MotionBox>
@@ -808,7 +808,7 @@ export default function Home() {
                     </Box>
                     <VStack spacing={6} align="start">
                       <Text fontSize="lg" color="gray.700" fontStyle="italic">
-                        "{testimonial.comment}"
+                        &quot;{testimonial.comment}&quot;
                       </Text>
                       <Flex align="center" gap={4}>
                         <Box
@@ -816,15 +816,13 @@ export default function Home() {
                           h={12}
                           rounded="full"
                           overflow="hidden"
+                          position="relative"
                         >
-                          <img
+                          <Image
                             src={testimonial.avatar}
                             alt={testimonial.name}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover"
-                            }}
+                            fill
+                            style={{ objectFit: 'cover' }}
                           />
                         </Box>
                         <Box>
@@ -949,7 +947,7 @@ export default function Home() {
                     <Heading size="md" color="gray.700" mb={4}>VKİ Değerleri Ne Anlama Gelir?</Heading>
                     <SimpleGrid columns={1} spacing={4}>
                       <Box p={4} bg="blue.50" rounded="lg">
-                        <Text fontWeight="bold" color="blue.700">18.5'in altı</Text>
+                        <Text fontWeight="bold" color="blue.700">18.5&apos;in altı</Text>
                         <Text color="blue.600">Zayıf - Kilo almanız önerilir</Text>
                       </Box>
                       <Box p={4} bg="green.50" rounded="lg">
@@ -961,7 +959,7 @@ export default function Home() {
                         <Text color="orange.600">Kilolu - Kilo vermeniz önerilir</Text>
                       </Box>
                       <Box p={4} bg="red.50" rounded="lg">
-                        <Text fontWeight="bold" color="red.700">30'un üzeri</Text>
+                        <Text fontWeight="bold" color="red.700">30&apos;un üzeri</Text>
                         <Text color="red.600">Obez - Sağlık riski</Text>
                       </Box>
                     </SimpleGrid>
