@@ -256,7 +256,7 @@ export default function Home() {
                 <Button variant="ghost" color="gray.600" onClick={() => scrollToSection('about')}>Hakkımda</Button>
                 <Button variant="ghost" color="gray.600" onClick={() => scrollToSection('services')}>Hizmetler</Button>
                 <Button variant="ghost" color="gray.600" onClick={() => scrollToSection('contact')}>İletişim</Button>
-                <Button colorScheme="primary" leftIcon={<Icon>📅</Icon>} onClick={() => scrollToSection('appointment')}>
+                <Button colorScheme="primary"  onClick={() => scrollToSection('appointment')}>
                   Randevu Al
                 </Button>
               </Stack>
@@ -269,7 +269,7 @@ export default function Home() {
                 onClick={() => scrollToSection('appointment')}
                 colorScheme="primary"
                 size="sm"
-                leftIcon={<Icon>📅</Icon>}
+                
               >
                 Randevu Al
               </Button>
